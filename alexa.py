@@ -91,21 +91,20 @@ if __name__ == "__main__":
             speak(results)
 
         # for open visual studio code
-        elif 'open code' in query:
+        elif "open code" in query:
             path = "C:\\Users\\Hemant Gupta\\AppData\\Local\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(path)
 
-        # for open word 
-        elif 'open word' or 'open ms word' or 'open microsoft word' in query:
+        # for open word
+        elif "open word" in query:
             path2 = "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE"
             os.startfile(path2)
-            
-        # for open xampp in computer 
-        elif 'open xampp' or 'open XAMPP' or 'open jamp' in query:
+
+        # for open xampp in computer
+        elif "open xampp" in query or "open jamp" in query:
             path1 = "C:\\xampp\\xampp-control.exe"
             "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
             os.startfile(path1)
-
 
         # for open youtube in chrome
         elif "open youtube" in query:
@@ -120,7 +119,7 @@ if __name__ == "__main__":
             webbrowser.get('chrome').open("stackoverflow.com")
 
         # for play songs of particular directry
-        elif "play music" or "play song" or "play songs" in query:
+        elif "play music" in query or "play song" in query or "play songs" in query:
             music_dir = "E:\\dhillo\\dhillo\\music"
             songs = os.listdir(music_dir)
             os.startfile(os.path.join(
@@ -137,6 +136,6 @@ if __name__ == "__main__":
             speak(f"you said that {query}")
 
         # for exiting the program
-        elif 'bye bye' in query or 'bye-bye' or 'bye' in query:
+        elif 'bye bye' in query or 'bye-bye' in query or 'bye' in query:
             speak("Bye bye....")
             exit()
