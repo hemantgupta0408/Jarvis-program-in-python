@@ -46,7 +46,7 @@ def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
-        r.pause_threshold = 1
+        r.pause_thre4shold = 1
         audio = r.listen(source)
 
     try:
@@ -82,6 +82,10 @@ if __name__ == "__main__":
                 "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"))
             webbrowser.get('chrome').open("google.com")
 
+        elif "close google" in query:
+            os.system("taskkill /im chrome.exe /f")
+
+
         # for searching something in wikipedia and alexa will speak the results
         elif "wikipedia" in query:
             print("Searching Wikipedia...")
@@ -95,16 +99,25 @@ if __name__ == "__main__":
             path = "C:\\Users\\Hemant Gupta\\AppData\\Local\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(path)
 
+        elif "close code" in query:
+            os.system("taskkill /im code.exe /f")
+
+
         # for open word
         elif "open word" in query:
             path2 = "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE"
             os.startfile(path2)
 
+        elif "close word" in query:
+            os.system("taskkill /im WINWORD.EXE /f")
+
         # for open xampp in computer
         elif "open xampp" in query or "open jamp" in query:
-            path1 = "C:\\xampp\\xampp-control.exe"
-            "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE"
+            path1 = "C:\\xampp\\xampp-control.exe"  
             os.startfile(path1)
+
+        elif "close xampp" in query or "close jamp" in query:
+            os.system("taskkill /im xampp-control.exe /f")
 
         # for open youtube in chrome
         elif "open youtube" in query:
@@ -123,7 +136,9 @@ if __name__ == "__main__":
             music_dir = "E:\\dhillo\\dhillo\\music"
             songs = os.listdir(music_dir)
             os.startfile(os.path.join(
-                music_dir, songs[random.randint(0, 453)]))
+                music_dir, songs[random.randint(0,len(music_dir))]))
+
+        
 
         # for knowing the current time in hour:minute:second formate
         elif "time now" in query:
