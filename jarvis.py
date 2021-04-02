@@ -8,10 +8,12 @@ import random
 import pyaudio  # pip install pyaudio
 
 engine = pyttsx3.init('sapi5')  # here we initialize the engine
+
 # here we get the voice for program speak
 voices = engine.getProperty('voices')
+
 # here we set the voice of windows for response
-engine.setProperty('voice', voices[1].id)
+engine.setProperty('voice', voices[0].id)
 
 # we write the speak function for results
 
@@ -20,9 +22,8 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
+
 # wishme function is use for wish user according to time
-
-
 def wishme():
     hour = int(datetime.datetime.now().hour)
 
@@ -35,11 +36,10 @@ def wishme():
     else:
         speak("good evening! ")
 
-    speak("I am Alexa , Please tell me how may i help you... ")
+    speak("Hello! I am Jarvis  , Please tell me how may i help you... ")
+
 
 # takeCommand function is use for taking command from microphone
-
-
 def takeCommand():
     # it takes audio as a input and give output according to your input.........
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         if "open google and search" in query:
             query = query.replace("open google and search", "")
             webbrowser.register('chrome', None, webbrowser.BackgroundBrowser(
-                "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"))
+                "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")) #path of your google chrome exe file
             webbrowser.get('chrome').open(
                 "https://google.com/search?q=%s" % query)
 
